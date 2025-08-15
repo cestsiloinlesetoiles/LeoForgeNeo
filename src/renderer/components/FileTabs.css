@@ -1,0 +1,99 @@
+.file-tabs {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tabs-container {
+  display: flex;
+  min-height: 40px;
+}
+
+.file-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-width: 120px;
+  max-width: 200px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.file-tab:hover {
+  background: var(--color-surface-hover);
+}
+
+.file-tab.active {
+  background: var(--color-background);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.file-tab.modified {
+  font-style: italic;
+}
+
+.tab-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.tab-name {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modified-indicator {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.close-tab {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.close-tab:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+/* Scrollbar styling for tabs */
+.file-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.file-tabs::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+.file-tabs::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 2px;
+}
+
+.file-tabs::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}

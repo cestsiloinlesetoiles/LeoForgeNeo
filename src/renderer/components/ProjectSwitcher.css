@@ -1,0 +1,300 @@
+.project-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.project-switcher-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.project-switcher-trigger:hover {
+  background: var(--hover-color);
+  border-color: var(--primary-color);
+}
+
+.current-project-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.project-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.project-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-files {
+  font-size: 11px;
+  color: var(--text-secondary-color);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: var(--text-secondary-color);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.project-switcher-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin-top: 4px;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-color);
+}
+
+.dropdown-header span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.btn-new-project-small {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: var(--primary-color);
+  color: var(--background-color);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-new-project-small:hover {
+  background: var(--primary-hover-color);
+  transform: scale(1.1);
+}
+
+.project-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.project-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.project-option:last-child {
+  border-bottom: none;
+}
+
+.project-option:hover {
+  background: var(--hover-color);
+}
+
+.project-option.active {
+  background: var(--primary-color-alpha);
+}
+
+.project-option-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-option-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-option-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary-color);
+}
+
+.message-count::before {
+  content: "💬 ";
+}
+
+.last-activity::before {
+  content: "🕒 ";
+}
+
+.active-indicator {
+  color: var(--success-color);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.empty-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.empty-projects span {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.btn-create-first-small {
+  padding: 6px 12px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-create-first-small:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+
+.dropdown-footer {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-color);
+  background: var(--background-color);
+}
+
+.btn-manage-projects {
+  width: 100%;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-secondary-color);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-manage-projects:hover {
+  background: var(--hover-color);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+/* Scrollbar styling for project list */
+.project-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-list::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.project-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.project-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary-color);
+}
+
+/* Animation for dropdown */
+.project-switcher-dropdown {
+  animation: dropdownSlide 0.2s ease-out;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-switcher-trigger {
+    min-width: 150px;
+    max-width: 200px;
+  }
+  
+  .project-switcher-dropdown {
+    left: -50px;
+    right: -50px;
+  }
+}
+
+/* Theme-specific variables */
+[data-theme="dark"] .project-switcher {
+  --hover-color: rgba(255, 255, 255, 0.05);
+  --primary-color-alpha: rgba(255, 215, 0, 0.1);
+  --success-color: #10b981;
+}
+
+[data-theme="light"] .project-switcher {
+  --hover-color: rgba(0, 0, 0, 0.03);
+  --primary-color-alpha: rgba(184, 134, 11, 0.1);
+  --success-color: #059669;
+}

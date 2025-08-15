@@ -1,0 +1,166 @@
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-background);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  min-height: 64px;
+  backdrop-filter: blur(10px);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header-left h3 {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.file-info:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+}
+
+.file-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+}
+
+.modified-indicator {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+  animation: pulse 2s infinite;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.save-button {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.save-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4);
+}
+
+.save-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.save-button:disabled {
+  background: var(--color-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.editor-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.editor-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  gap: var(--spacing-sm);
+}
+
+.no-file-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: var(--color-background);
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.no-file-content {
+  text-align: center;
+  color: var(--color-text-secondary);
+  max-width: 400px;
+  padding: var(--spacing-2xl);
+}
+
+.no-file-content h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.no-file-content p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  opacity: 0.8;
+}
+
+/* Monaco Editor theme customizations */
+.monaco-editor {
+  background-color: var(--color-background) !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--color-surface) !important;
+}
+
+.monaco-editor .monaco-editor-background {
+  background-color: var(--color-background) !important;
+}
+
+/* Scrollbar styling for Monaco */
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider {
+  background: var(--color-text-secondary) !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider:hover {
+  background: var(--color-text) !important;
+}

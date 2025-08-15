@@ -1,0 +1,100 @@
+.code-highlight {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.code-highlight.modified {
+  background: linear-gradient(90deg, 
+    rgba(255, 215, 0, 0.1) 0%, 
+    rgba(255, 215, 0, 0.2) 50%, 
+    rgba(255, 215, 0, 0.1) 100%
+  );
+  border-left: 3px solid var(--primary-color);
+  padding-left: 8px;
+  animation: highlightPulse 2s ease-in-out;
+}
+
+@keyframes highlightPulse {
+  0% {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    background: rgba(255, 215, 0, 0.1);
+    transform: scale(1.01);
+  }
+  100% {
+    background: rgba(255, 215, 0, 0.05);
+    transform: scale(1);
+  }
+}
+
+.modification-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  animation: indicatorSlideIn 0.3s ease-out;
+  z-index: 10;
+}
+
+@keyframes indicatorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.indicator-icon {
+  font-size: 12px;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+.indicator-text {
+  white-space: nowrap;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .code-highlight.modified {
+  background: linear-gradient(90deg, 
+    rgba(255, 215, 0, 0.08) 0%, 
+    rgba(255, 215, 0, 0.15) 50%, 
+    rgba(255, 215, 0, 0.08) 100%
+  );
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .code-highlight.modified {
+  background: linear-gradient(90deg, 
+    rgba(184, 134, 11, 0.1) 0%, 
+    rgba(184, 134, 11, 0.2) 50%, 
+    rgba(184, 134, 11, 0.1) 100%
+  );
+  border-left-color: #b8860b;
+}
+
+[data-theme="light"] .modification-indicator {
+  background: #b8860b;
+}
